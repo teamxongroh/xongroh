@@ -1,8 +1,8 @@
-/xongroh-backend/node_modules/
+xongroh-backend/node_modules/
 
 # environment variable
-/xongroh-backend/.env
+xongroh-backend/.env
 
-/xongroh-backend/logs/
+xongroh-backend/logs/
 
-/.vscode/
+.vscode/
