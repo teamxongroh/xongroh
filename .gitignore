@@ -4,3 +4,5 @@
 /xongroh-backend/.env
 
 /xongroh-backend/logs/
+
+/.vscode/
