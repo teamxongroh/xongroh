@@ -3,4 +3,4 @@
 # environment variable
 /xongroh-backend/.env
 
-/xongroh-backend/logs
+/xongroh-backend/logs/
