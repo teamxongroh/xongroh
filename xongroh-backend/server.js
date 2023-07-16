@@ -17,7 +17,7 @@ console.log(process.env.NODE_ENV)
 connectDB();
 const PORT = process.env.PORT || 8000;
 
-
+app.disable('x-powered-by'); // to hide stack details
 app.use(logger)
 app.use(cors(corsOptions));
 app.use(express.json());
@@ -34,7 +34,7 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 // the client requests the root URL.
 app.use('/', require('./routes/root'));
 app.use('/auth', require('./routes/authRoutes'));
-app.use('/users', require('./routes/userRoutes'));
+app.use('/v1/user', require('./routes/userRoutes'));
 
 app.use(require("./routes/auth"));
 
