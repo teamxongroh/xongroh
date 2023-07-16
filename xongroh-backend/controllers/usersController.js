@@ -20,10 +20,10 @@ const getAllUsers = asyncHandler(async (req, res) => {
 // @route POST /users
 // @access Private
 const createNewUser = asyncHandler(async (req, res) => {
-    const {username, password, roles} = req.body
+    const {username, password, email, phone, roles} = req.body
 
     // confirm data
-    if (!username || !password || !Array.isArray(roles) || !roles.length) {
+    if (!username || !password || email || phone || !Array.isArray(roles) || !roles.length) {
         return res.status(400).json({message: 'All fields are required!'})
     }
 
@@ -36,7 +36,7 @@ const createNewUser = asyncHandler(async (req, res) => {
 
     // hash password
     const hashedPwd = await bcrypt.hash(password, 10); // salt rounds
-    const userObject = {username, "password": hashedPwd, roles};
+    const userObject = {username, "password": hashedPwd, email, phone, roles};
 
     // create and store new user
     const user = await User.create(userObject);
@@ -54,7 +54,7 @@ const createNewUser = asyncHandler(async (req, res) => {
 // @route PATCH /users
 // @access Private
 const updateUser = asyncHandler(async (req, res) => {
-    const {id, username, password, roles, active} = req.body
+    const {id, username, password, email, phone, roles, active} = req.body
 
     // confirm data
     if (!id || !username || !Array.isArray(roles) || !roles.length || typeof active !== 'boolean') {
