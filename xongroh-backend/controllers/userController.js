@@ -2,7 +2,7 @@ import UserModel from '../models/User.js'
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import ENV from '../config.js'
-import otpGenerator from 'otp-generator';
+import otpGenerator from './otp-gen.js'
 import asyncHandler from "express-async-handler"
 
 /** middleware for verify user */
