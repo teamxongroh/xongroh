@@ -1,14 +1,17 @@
-require('dotenv').config()
-const express = require("express");
+import dotenv from 'dotenv';
+dotenv.config();
+
+import express from 'express';
+import path from 'path';
+import { logger, logEvents } from './middleware/logger';
+import errorHandler from './middleware/errorHandler';
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import corsOptions from './config/corsOptions';
+import connectDB from './config/dbConn';
+import mongoose from 'mongoose';
+
 const app = express();
-const path = require('path');
-const {logger, logEvents} = require('./middleware/logger');
-const errorHandler = require('./middleware/errorHandler');
-const cookieParser = require('cookie-parser');
-const cors = require('cors');
-const corsOptions = require('./config/corsOptions');
-const connectDB = require('./config/dbConn');
-const mongoose = require('mongoose')
 
 console.log(process.env.NODE_ENV)
 connectDB();
