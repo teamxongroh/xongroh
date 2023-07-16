@@ -1,10 +1,10 @@
 import { Router } from "express";
 const router = Router();
-import * as userController from '../controllers/userController.js';
 
-// experiments
+import * as userController from '../controllers/userController.js';
 import { registerMail } from '../controllers/mailer.js'
 import Auth, { localVariables } from '../middleware/auth.js';
+
 
 /** POST Methods */
 router.route('/register').post(userController.register); // register user
@@ -13,7 +13,7 @@ router.route('/authenticate').post(userController.verifyUser, (req, res) => res.
 router.route('/login').post(userController.verifyUser,userController.login); // login in app
 
 /** GET Methods */
-router.route('/user/:username').get(userController.getUser) // user with username
+router.route('/:username').get(userController.getUser) // user with username
 router.route('/generateOTP').get(userController.verifyUser, localVariables, userController.generateOTP) // generate random OTP
 router.route('/verifyOTP').get(userController.verifyUser, userController.verifyOTP) // verify generated OTP
 router.route('/createResetSession').get(userController.createResetSession) // reset all the variables
