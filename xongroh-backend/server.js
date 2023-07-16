@@ -3,14 +3,19 @@ dotenv.config();
 
 import express from 'express';
 import path from 'path';
-import { logger, logEvents } from './middleware/logger';
-import errorHandler from './middleware/errorHandler';
+import { logger, logEvents } from './middleware/logger.js';
+import errorHandler from './middleware/errorHandler.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
-import corsOptions from './config/corsOptions';
-import connectDB from './config/dbConn';
+import corsOptions from './config/corsOptions.js';
+import connectDB from './config/dbConn.js';
 import mongoose from 'mongoose';
 
+import userRouter from './routes/userRoute.js';
+import rootRoute from './routes/root.js'
+
+
+const __dirname = path.resolve();
 const app = express();
 
 console.log(process.env.NODE_ENV)
@@ -32,11 +37,11 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 // This code snippet allows the web application
 // to serve the index.html file to the client when
 // the client requests the root URL.
-app.use('/', require('./routes/root'));
-app.use('/auth', require('./routes/authRoutes'));
-app.use('/v1/user', require('./routes/userRoutes'));
+app.use('/', rootRoute);
+// app.use('/auth', require('./routes/authRoutes'));
+app.use('/v1/user', userRouter);
 
-app.use(require("./routes/auth"));
+// app.use(require("./routes/auth"));
 
 app.all('*', (req, res) => {
   res.status(404)
