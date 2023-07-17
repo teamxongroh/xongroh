@@ -10,12 +10,15 @@ import cors from 'cors';
 import corsOptions from './config/corsOptions.js';
 import connectDB from './config/dbConn.js';
 import mongoose from 'mongoose';
-
 import userRouter from './routes/userRoute.js';
 import rootRoute from './routes/root.js'
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
 
 
-const __dirname = path.resolve();
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename);
+
 const app = express();
 
 console.log(process.env.NODE_ENV)
