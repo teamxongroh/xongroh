@@ -115,6 +115,13 @@
                 </td>
             </tr>
             <tr>
+                <td>POST /v1/user/registerMail</td>
+                <td>
+                    <span class="status-dot status-dot-green" id="register-status"></span>
+                    <span class="status-label active">Active</span>
+                </td>
+            </tr>
+            <tr>
                 <td>POST /v1/user/authenticate</td>
                 <td>
                     <span class="status-dot status-dot-green" id="authenticate-status"></span>
@@ -220,6 +227,7 @@
                     .then(response => response.json())
                     .then(data => {
                         updateAPIStatus('register', data.register);
+                        updateAPIStatus('registerMail', data.registerMail);
                         updateAPIStatus('authenticate', data.authenticate);
                         updateAPIStatus('login', data.login);
                         updateAPIStatus('user-details', data.userDetails);
