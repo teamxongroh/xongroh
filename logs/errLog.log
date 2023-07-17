@@ -1,3 +1,0 @@
-20230717	04:27:15	04744df1-40b7-4ea1-b5d6-d9e43eb86810	ReferenceError: __dirname is not defined	GET	/	undefined
-20230717	04:27:16	df373b8d-7023-482e-b98c-0d24d7ca1759	ReferenceError: __dirname is not defined	GET	/	undefined
-20230717	04:27:39	8ac3d672-e6b1-443a-8e47-1bce5ab32510	Error: ENOENT: no such file or directory, stat 'C:\Users\rikip\Desktop\EXIM\Projects\Xongroh\views\index.html'	GET	/	undefined
