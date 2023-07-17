@@ -35,7 +35,7 @@ app.use(cookieParser());
 // Overall, this code snippet allows the web
 // application to serve static files to the client
 // without having to write individual routes for each file.
-app.use('/', express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.join(__dirname, 'public'), { cacheControl: false }));
 
 
 // This code snippet allows the web application
