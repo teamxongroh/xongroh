@@ -4,5 +4,5 @@ xongroh-backend/node_modules/
 xongroh-backend/.env
 
 xongroh-backend/logs/
-
+logs/
 .vscode/
