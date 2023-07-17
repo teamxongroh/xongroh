@@ -14,7 +14,7 @@ router.get('^/$|/index(.html)?', (req, res) => {
   res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
   res.setHeader('Pragma', 'no-cache');
   res.setHeader('Expires', '0');
-  res.sendFile(path.join(__dirname, '..', 'views', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'views', 'index1.html'));
 });
 
 export default router;
