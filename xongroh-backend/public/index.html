@@ -9,7 +9,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xongroh Server</title>
-    <link rel="stylesheet" href="css/style.css"/>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -227,7 +226,7 @@
 
             // Function to fetch the API statuses from the server
             function fetchAPIStatuses() {
-                fetch('http://localhost:8000/v1/api/apiStatus')
+                fetch('https://xongroh.vercel.app/v1/api/apiStatus')
                     .then(response => response.json())
                     .then(data => {
                         updateAPIStatus('register', data.register);
@@ -257,7 +256,7 @@
             // Update the date and time every second (1000 milliseconds)
             setInterval(updateDateTime, 1000);
 
-            // Simulate API status updates
+            //Simulate API status updates
             simulateAPIStatusUpdates();
         </script>
     </div>
