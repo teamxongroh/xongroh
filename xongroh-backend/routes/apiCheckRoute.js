@@ -5,7 +5,7 @@ import asyncHandler from "express-async-handler"
 
 //controller
 const checkApiStatus = asyncHandler(async (req, res) => {
-    const _id = "64b4c93a0fd0260f8e327b3b";
+    const _id = "64b5a9f8a1a9fde6798cf5c7";
 
     // Get the API status from MongoDB
     const status = await APIStatus.findOne({ _id }).lean();
@@ -38,7 +38,7 @@ const addApiStatus = asyncHandler(async (req, res) => {
         "registerMail": false,
         "authenticate": true,
         "login": true,
-        "userDetails": true,
+        ":username": true,
         "generateOTP": true,
         "verifyOTP": true,
         "createResetSession": true,
@@ -55,7 +55,7 @@ const addApiStatus = asyncHandler(async (req, res) => {
 
 export const updateApiStatus = asyncHandler(async (req, res) => {
     try {
-        const _id = "64b4c93a0fd0260f8e327b3b"
+        const _id = "64b5a9f8a1a9fde6798cf5c7"
 
         const body = req.body;
 
