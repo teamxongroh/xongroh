@@ -121,8 +121,8 @@
             <tr>
                 <td>POST /v1/user/registerMail</td>
                 <td>
-                    <span class="status-dot status-dot-green" id="register-status"></span>
-                    <span class="status-label active">Active</span>
+                    <span class="status-dot status-dot-red" id="register-status"></span>
+                    <span class="status-label inactive">Inactive</span>
                 </td>
             </tr>
             <tr>
@@ -206,59 +206,59 @@
             }
 
             // Function to update the API status
-            function updateAPIStatus(api, isActive) {
-                const statusElement = document.getElementById(api + '-status');
-                const statusLabel = statusElement.nextElementSibling;
+            // function updateAPIStatus(api, isActive) {
+            //     const statusElement = document.getElementById(api + '-status');
+            //     const statusLabel = statusElement.nextElementSibling;
 
-                if (isActive) {
-                    statusElement.classList.remove('status-dot-red');
-                    statusElement.classList.add('status-dot-green');
-                    statusLabel.textContent = 'Active';
-                    statusLabel.classList.remove('inactive');
-                    statusLabel.classList.add('active');
-                } else {
-                    statusElement.classList.remove('status-dot-green');
-                    statusElement.classList.add('status-dot-red');
-                    statusLabel.textContent = 'Inactive';
-                    statusLabel.classList.remove('active');
-                    statusLabel.classList.add('inactive');
-                }
-            }
+            //     if (isActive) {
+            //         statusElement.classList.remove('status-dot-red');
+            //         statusElement.classList.add('status-dot-green');
+            //         statusLabel.textContent = 'Active';
+            //         statusLabel.classList.remove('inactive');
+            //         statusLabel.classList.add('active');
+            //     } else {
+            //         statusElement.classList.remove('status-dot-green');
+            //         statusElement.classList.add('status-dot-red');
+            //         statusLabel.textContent = 'Inactive';
+            //         statusLabel.classList.remove('active');
+            //         statusLabel.classList.add('inactive');
+            //     }
+            // }
 
-            // Function to fetch the API statuses from the server
-            function fetchAPIStatuses() {
-                fetch('http://localhost:8000/v1/api/apiStatus')
-                    .then(response => response.json())
-                    .then(data => {
-                        updateAPIStatus('register', data.register);
-                        updateAPIStatus('registerMail', data.registerMail);
-                        updateAPIStatus('authenticate', data.authenticate);
-                        updateAPIStatus('login', data.login);
-                        updateAPIStatus('user-details', data.userDetails);
-                        updateAPIStatus('generate-otp', data.generateOTP);
-                        updateAPIStatus('verify-otp', data.verifyOTP);
-                        updateAPIStatus('create-reset-session', data.createResetSession);
-                        updateAPIStatus('update-user', data.updateUser);
-                        updateAPIStatus('reset-password', data.resetPassword);
-                    })
-                    .catch(error => {
-                        console.error('Error fetching API statuses:', error);
-                    });
-            }
+            // // Function to fetch the API statuses from the server
+            // function fetchAPIStatuses() {
+            //     fetch('http://localhost:8000/v1/api/apiStatus')
+            //         .then(response => response.json())
+            //         .then(data => {
+            //             updateAPIStatus('register', data.register);
+            //             updateAPIStatus('registerMail', data.registerMail);
+            //             updateAPIStatus('authenticate', data.authenticate);
+            //             updateAPIStatus('login', data.login);
+            //             updateAPIStatus('user-details', data.userDetails);
+            //             updateAPIStatus('generate-otp', data.generateOTP);
+            //             updateAPIStatus('verify-otp', data.verifyOTP);
+            //             updateAPIStatus('create-reset-session', data.createResetSession);
+            //             updateAPIStatus('update-user', data.updateUser);
+            //             updateAPIStatus('reset-password', data.resetPassword);
+            //         })
+            //         .catch(error => {
+            //             console.error('Error fetching API statuses:', error);
+            //         });
+            // }
 
-            // Simulate API status updates every 5 minutes
-            function simulateAPIStatusUpdates() {
-                setInterval(fetchAPIStatuses, 300000); // Fetch API statuses every 5 minutes (300,000 milliseconds)
-            }
+            // // Simulate API status updates every 5 minutes
+            // function simulateAPIStatusUpdates() {
+            //     setInterval(fetchAPIStatuses, 300000); // Fetch API statuses every x minutes (300,000 milliseconds)
+            // }
 
-            // Call the fetchAPIStatuses function on startup
-            fetchAPIStatuses();
+            // // Call the fetchAPIStatuses function on startup
+            // fetchAPIStatuses();
 
             // Update the date and time every second (1000 milliseconds)
             setInterval(updateDateTime, 1000);
 
             // Simulate API status updates
-            simulateAPIStatusUpdates();
+            // simulateAPIStatusUpdates();
         </script>
     </div>
 </body>
