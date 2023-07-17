@@ -39,18 +39,21 @@
             text-align: left;
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
             text-align: left;
+            width: 100%;
         }
 
-        li {
-            margin-bottom: 10px;
+        th, td {
+            padding: 8px;
         }
 
-        li strong {
-            color: #FF6F00;
+        th {
+            background-color: #FF6F00;
+            color: white;
+            font-weight: normal;
         }
 
         .status-dot {
@@ -67,6 +70,18 @@
 
         .status-dot-red {
             background-color: #FF0000;
+        }
+
+        .status-label {
+            font-weight: bold;
+        }
+
+        .active {
+            color: #00CC00;
+        }
+
+        .inactive {
+            color: #FF0000;
         }
 
         .credits {
@@ -87,18 +102,75 @@
         <p>The first ever social marketplace designed exclusively for Creators.</p>
         <p>Stay tuned for more updates and features.</p>
         <h2 style="color: #FF6F00;">API Documentation</h2>
-        <ul>
-            <li><strong>POST /v1/user/register</strong>: Register a new user.</li>
-            <li><strong>POST /v1/user/authenticate</strong>: Authenticate a user.</li>
-            <li><strong>POST /v1/user/login</strong>: Log in a user.</li>
-            <li><strong>GET /v1/user/:username</strong>: Get user details by username.</li>
-            <li><strong>GET /v1/user/generateOTP</strong>: Generate a random OTP.</li>
-            <li><strong>GET /v1/user/verifyOTP</strong>: Verify a generated OTP.</li>
-            <li><strong>GET /v1/user/createResetSession</strong>: Reset all variables.</li>
-            <li><strong>PUT /v1/user/updateuser</strong>: Update the user profile.</li>
-            <li><strong>PUT /v1/user/resetPassword</strong>: Reset the user's password.</li>
-        </ul>
-        
+        <table>
+            <tr>
+                <th>API</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>POST /v1/user/register</td>
+                <td>
+                    <span class="status-dot status-dot-green" id="register-status"></span>
+                    <span class="status-label active">Active</span>
+                </td>
+            </tr>
+            <tr>
+                <td>POST /v1/user/authenticate</td>
+                <td>
+                    <span class="status-dot status-dot-green" id="authenticate-status"></span>
+                    <span class="status-label active">Active</span>
+                </td>
+            </tr>
+            <tr>
+                <td>POST /v1/user/login</td>
+                <td>
+                    <span class="status-dot status-dot-green" id="login-status"></span>
+                    <span class="status-label active">Active</span>
+                </td>
+            </tr>
+            <tr>
+                <td>GET /v1/user/:username</td>
+                <td>
+                    <span class="status-dot status-dot-green" id="user-details-status"></span>
+                    <span class="status-label active">Active</span>
+                </td>
+            </tr>
+            <tr>
+                <td>GET /v1/user/generateOTP</td>
+                <td>
+                    <span class="status-dot status-dot-green" id="generate-otp-status"></span>
+                    <span class="status-label active">Active</span>
+                </td>
+            </tr>
+            <tr>
+                <td>GET /v1/user/verifyOTP</td>
+                <td>
+                    <span class="status-dot status-dot-green" id="verify-otp-status"></span>
+                    <span class="status-label active">Active</span>
+                </td>
+            </tr>
+            <tr>
+                <td>GET /v1/user/createResetSession</td>
+                <td>
+                    <span class="status-dot status-dot-green" id="create-reset-session-status"></span>
+                    <span class="status-label active">Active</span>
+                </td>
+            </tr>
+            <tr>
+                <td>PUT /v1/user/updateuser</td>
+                <td>
+                    <span class="status-dot status-dot-green" id="update-user-status"></span>
+                    <span class="status-label active">Active</span>
+                </td>
+            </tr>
+            <tr>
+                <td>PUT /v1/user/resetPassword</td>
+                <td>
+                    <span class="status-dot status-dot-green" id="reset-password-status"></span>
+                    <span class="status-label active">Active</span>
+                </td>
+            </tr>
+        </table>
 
         <h2 style="color: #FF6F00;" id="datetime"></h2>
         <div class="status-dot status-dot-green"></div><span>System Status: Online</span>
@@ -122,11 +194,59 @@
                 dateTimeElement.textContent = formattedDate;
             }
 
-            // Call the updateDateTime function initially
-            updateDateTime();
+            // Function to update the API status
+            function updateAPIStatus(api, isActive) {
+                const statusElement = document.getElementById(api + '-status');
+                const statusLabel = statusElement.nextElementSibling;
+
+                if (isActive) {
+                    statusElement.classList.remove('status-dot-red');
+                    statusElement.classList.add('status-dot-green');
+                    statusLabel.textContent = 'Active';
+                    statusLabel.classList.remove('inactive');
+                    statusLabel.classList.add('active');
+                } else {
+                    statusElement.classList.remove('status-dot-green');
+                    statusElement.classList.add('status-dot-red');
+                    statusLabel.textContent = 'Inactive';
+                    statusLabel.classList.remove('active');
+                    statusLabel.classList.add('inactive');
+                }
+            }
+
+            // Function to fetch the API statuses from the server
+            function fetchAPIStatuses() {
+                fetch('http://localhost:8000/v1/api/apiStatus')
+                    .then(response => response.json())
+                    .then(data => {
+                        updateAPIStatus('register', data.register);
+                        updateAPIStatus('authenticate', data.authenticate);
+                        updateAPIStatus('login', data.login);
+                        updateAPIStatus('user-details', data.userDetails);
+                        updateAPIStatus('generate-otp', data.generateOTP);
+                        updateAPIStatus('verify-otp', data.verifyOTP);
+                        updateAPIStatus('create-reset-session', data.createResetSession);
+                        updateAPIStatus('update-user', data.updateUser);
+                        updateAPIStatus('reset-password', data.resetPassword);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching API statuses:', error);
+                    });
+            }
+
+            // Simulate API status updates every 5 minutes
+            function simulateAPIStatusUpdates() {
+                setInterval(fetchAPIStatuses, 300000); // Fetch API statuses every 5 minutes (300,000 milliseconds)
+            }
+
+            // Call the fetchAPIStatuses function on startup
+            fetchAPIStatuses();
 
             // Update the date and time every second (1000 milliseconds)
             setInterval(updateDateTime, 1000);
+
+            // Simulate API status updates
+            simulateAPIStatusUpdates();
         </script>
     </div>
 </body>

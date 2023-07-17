@@ -10,10 +10,11 @@ import cors from 'cors';
 import corsOptions from './config/corsOptions.js';
 import connectDB from './config/dbConn.js';
 import mongoose from 'mongoose';
-import userRouter from './routes/userRoute.js';
+import userRoute from './routes/userRoute.js';
 import rootRoute from './routes/root.js'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
+import apiCheckRoute from './routes/apiCheckRoute.js';
 
 
 const __filename = fileURLToPath(import.meta.url)
@@ -42,7 +43,8 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 // the client requests the root URL.
 app.use('/', rootRoute);
 // app.use('/auth', require('./routes/authRoutes'));
-app.use('/v1/user', userRouter);
+app.use('/v1/user', userRoute);
+app.use('/v1/api', apiCheckRoute);
 
 // app.use(require("./routes/auth"));
 
