@@ -170,12 +170,7 @@ export const updateUser = asyncHandler(async (req, res) => {
 
 /** GET: http://localhost:8080/api/generateOTP */
 export const generateOTP = asyncHandler(async (req, res) => {
-  req.app.locals.OTP = await otpGenerator.generate(6, {
-    lowerCaseAlphabets: false,
-    upperCaseAlphabets: false,
-    specialChars: false,
-  });
-
+  req.app.locals.OTP = await otpGenerator(6);
   res.status(201).send({ code: req.app.locals.OTP });
 });
 
@@ -185,7 +180,7 @@ export const generateOTP = asyncHandler(async (req, res) => {
 export const verifyOTP = asyncHandler(async (req, res) => {
   const { code } = req.query;
 
-  if (req.app.locals.OTP.toString() === code.toString()) {
+  if (parseInt(req.app.locals.OTP) === parseInt(code)) {
     req.app.locals.OTP = null; // Reset the OTP value
     req.app.locals.resetSession = true; // Start session for reset password
     return res.status(201).send({ msg: 'Verified Successfully!' });

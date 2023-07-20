@@ -17,6 +17,7 @@ router.route('/login').post(rateLimiter, userController.verifyUser,userControlle
 router.route('/generateOTP').get(userController.verifyUser, localVariables, userController.generateOTP) // generate random OTP
 router.route('/verifyOTP').get(userController.verifyUser, userController.verifyOTP) // verify generated OTP
 router.route('/createResetSession').get(userController.createResetSession) // reset all the variables
+
 router.route('/:username').get(userController.getUser) // user with username
 // In Express, routes are matched in the order they are declared. When you have a route with a
 // parameter (e.g., /:username) followed by a route without any parameters (e.g., /generateOTP), 
