@@ -25,7 +25,7 @@ router.route('/:username').get(userController.getUser) // user with username
 
 
 /** PUT Methods */
-router.route('/updateuser').put(verifyJWT, userController.updateUser); // is use to update the user profile
+router.route('/updateuser').put(verifyJWT, userController.updateUser); // to update the user profile
 router.route('/resetPassword').put(userController.verifyUser, userController.resetPassword); // use to reset password
 
 export default router;
