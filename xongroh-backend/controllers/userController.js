@@ -171,6 +171,7 @@ export const updateUser = asyncHandler(async (req, res) => {
 /** GET: http://localhost:8080/api/generateOTP */
 export const generateOTP = asyncHandler(async (req, res) => {
   req.app.locals.OTP = await otpGenerator(6);
+
   res.status(201).send({ code: req.app.locals.OTP });
 });
 
@@ -195,6 +196,7 @@ export const verifyOTP = asyncHandler(async (req, res) => {
 /** GET: http://localhost:8080/api/createResetSession */
 export const createResetSession = asyncHandler(async (req, res) => {
   if (req.app.locals.resetSession) {
+    req.app.locals.resetSession = false; // check check check check!!!!!!
     return res.status(201).send({ flag: req.app.locals.resetSession });
   }
 
