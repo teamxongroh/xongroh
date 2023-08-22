@@ -7,7 +7,7 @@ const RegisterPage = () => {
     const userIcon = <FontAwesomeIcon icon={faUser} />
   return (
     <>
-        <h1 className="text-center p-10 text-orange-400 font-medium text-xl">Welcome back</h1>
+        <h1 className="text-center p-10 text-orange-400 font-medium text-xl">Xongroh</h1>
         <div className="text-center">
             {userIcon}
         </div>
