@@ -26,19 +26,22 @@ const SearchPage = () => {
         <div className='px-5'>
             <h1 className='text-2xl font-bold pt-6 pb-5'>Popular</h1>
 
-            <div className='flex flex-row justify-between px-3 font-semibold'>
-            <button className='border-2 border-black rounded-3xl w-20 h-8 bg-[#F5F5F7]'>New</button>
-            <button className='border-2 border-black rounded-3xl w-20 h-8 bg-[#F5F5F7]'>Popular</button>
-            <button className='border-2 border-black rounded-3xl w-20 h-8 bg-[#F5F5F7]'>Mine</button>
-            <button className='border-2 border-black rounded-3xl w-20 h-8 bg-[#F5F5F7]'>Saved</button>
+            <div className='overflow-x-scroll whitespace-nowrap'>
+                <div className='flex flex-row justify-between font-semibold'>
+
+                    <button className='border-2 border-black rounded-3xl w-52 h-8 mx-1 bg-[#F5F5F7]'>Creators</button>
+                    <button className='border-2 border-black rounded-3xl w-52 h-8 mx-1 bg-[#F5F5F7]'>Communities</button>
+                    <button className='border-2 border-black rounded-3xl w-52 h-8 mx-1 bg-[#F5F5F7]'>Events</button>
+                    <button className='border-2 border-black rounded-3xl w-52 h-8 mx-1 bg-[#F5F5F7]'>Courses</button>
+
+                </div>
             </div>
-      </div>
+        </div>
 
       <UserBox/>
       <UserBox/>
       <UserBox/>
       <UserBox/>
-      <Navbar/>
     </div>
   )
 }

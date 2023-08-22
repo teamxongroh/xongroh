@@ -40,7 +40,6 @@ const HomePage = () => {
         <ImageDiv/>
         
       </div>
-      <Navbar/>
     </div>
   )
 }

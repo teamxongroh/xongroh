@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <nav className="flex flex-row justify-between mt-4 py-5 px-10 bg-white">
-      <Link to="/">
+    <nav className="flex flex-row justify-between mt-4 py-5 px-10 bg-white fixed bottom-0 left-0 w-full">
+      <Link to="/home">
         <img src={Assets.home} alt="Home"/>
       </Link>
-      <Link to="/about">
+      <Link to="/search">
         <img src={Assets.search} alt="About"/>
       </Link>
       <Link to="/about">
