@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <div className='bg-[#F8E8EE]'>
       <div className='header px-5 pb-5 bg-[#F5F0BB] rounded-b-3xl'>
-
+       
         <div className='header-text flex flex-row justify-between py-5 items-center'>
           <h1 className='text-3xl font-bold'>Xongroh</h1>
           <div className='flex flex-row space-x-4'>
@@ -14,7 +14,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        <p className='text-base font-semibold p-5 '>Hi XYZ, Have a nice day and bla bla bla !</p>
+        <p className='text-base font-semibold p-5 '>Hi XYZ, Have a nice day rgebb trbtr la !</p>
 
         <div className='grid grid-cols-2 gap-6 px-10 font-semibold'>
           <button className='border-2 border-black rounded-3xl w-32 h-10 bg-[#FDCEDF]'>DRAFTS</button>
