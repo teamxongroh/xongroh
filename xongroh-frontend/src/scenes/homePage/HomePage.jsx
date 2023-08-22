@@ -1,5 +1,6 @@
 import Assets from '@/assets/Assets'
 import ImageDiv from '@/components/ImageDiv'
+import Navbar from '@/components/Navbar'
 
 const HomePage = () => {
   return (
@@ -39,6 +40,7 @@ const HomePage = () => {
         <ImageDiv/>
         
       </div>
+      <Navbar/>
     </div>
   )
 }
