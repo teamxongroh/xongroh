@@ -1,6 +1,5 @@
 import Assets from '@/assets/Assets'
-import Navbar from '@/components/Navbar'
-import UserBox from '../../components/UserBox'
+import UserBox from '@/components/UserBox'
 
 const SearchPage = () => {
   return (

@@ -10,10 +10,10 @@ const Navbar = () => {
       <Link to="/search">
         <img src={Assets.search} alt="About"/>
       </Link>
-      <Link to="/about">
+      <Link to="/communities">
         <img src={Assets.world} alt="About"/>
       </Link>
-      <Link to="/about">
+      <Link to="/profile">
         <img src={Assets.profile} alt="About"/>
       </Link>
     </nav>

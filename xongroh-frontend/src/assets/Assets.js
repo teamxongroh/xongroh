@@ -7,6 +7,7 @@ import profile from '@/assets/profile.png'
 import search from '@/assets/search.png'
 import world from '@/assets/world.png'
 import user1 from '@/assets/user1.png'
+import music from '@/assets/music.png'
 
 
 const Assets = {
@@ -18,7 +19,8 @@ const Assets = {
     profile,
     search,
     world,
-    user1
+    user1,
+    music
 }
 
 export default Assets
