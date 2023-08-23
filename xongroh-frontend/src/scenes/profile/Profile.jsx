@@ -14,12 +14,12 @@ const Profile = () => {
               </div>
               
               <div className='font-bold pb-2'>Mahindra alpha beta</div>
-              <p className=' px-5 text-center'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis a est dapibus posuere. Donec molestie risus ac elit imperdiet pretium. Phasellus volutpat nec ligula at accumsan.</p>
+              <p className=' px-5 text-center pb-6'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis a est dapibus posuere. Donec molestie risus ac elit imperdiet pretium. Phasellus volutpat nec ligula at accumsan.</p>
               
-              <div className='flex flex-row'>
-                  <button className='border-2 border-black rounded-3xl  bg-[#F5F5F7]'>Creators</button>
-                  <button className='border-2 border-black rounded-3xl  bg-[#F5F5F7]'>Communities</button>
-                  <button className='border-2 border-black rounded-3xl  bg-[#F5F5F7]'>Events</button>
+              <div className='flex flex-row justify-between'>
+                  <button className='border-2 px-3 mx-3 border-black rounded-3xl bg-[#F5F5F7]'>Support</button>
+                  <button className='border-2 px-3 mx-3 border-black rounded-3xl bg-[#C8E4B2]'>Message</button>
+                  <button className='border-2 px-3 mx-3 border-black rounded-3xl bg-[#F5F5F7]'>Events</button>
               </div>
           </div>
         </div>
