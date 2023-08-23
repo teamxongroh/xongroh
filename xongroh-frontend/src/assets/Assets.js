@@ -8,6 +8,7 @@ import search from '@/assets/search.png'
 import world from '@/assets/world.png'
 import user1 from '@/assets/user1.png'
 import music from '@/assets/music.png'
+import user2 from '@/assets/user2.png'
 
 
 const Assets = {
@@ -20,6 +21,7 @@ const Assets = {
     search,
     world,
     user1,
+    user2,
     music
 }
 
