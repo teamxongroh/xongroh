@@ -27,10 +27,10 @@ const Profile = () => {
         <div className='p-5'>
           <div className='overflow-x-scroll whitespace-nowrap'>
               <div className='flex flex-row justify-between font-semibold'>
-                  <button className='border-2 border-black rounded-3xl w-52 h-8 mx-1 bg-[#F5F5F7]'>Creators</button>
-                  <button className='border-2 border-black rounded-3xl w-52 h-8 mx-1 bg-[#F5F5F7]'>Communities</button>
-                  <button className='border-2 border-black rounded-3xl w-52 h-8 mx-1 bg-[#F5F5F7]'>Events</button>
-                  <button className='border-2 border-black rounded-3xl w-52 h-8 mx-1 bg-[#F5F5F7]'>Courses</button>
+                  <button className='border-2 border-black rounded-3xl px-3 mx-2 bg-[#F5F5F7]'>Creators</button>
+                  <button className='border-2 border-black rounded-3xl px-3 mx-2 bg-[#F5F5F7]'>Communities</button>
+                  <button className='border-2 border-black rounded-3xl px-3 mx-2 bg-[#F5F5F7]'>Events</button>
+                  <button className='border-2 border-black rounded-3xl px-3 mx-2 bg-[#F5F5F7]'>Courses</button>
               </div>
           </div>
         </div>
