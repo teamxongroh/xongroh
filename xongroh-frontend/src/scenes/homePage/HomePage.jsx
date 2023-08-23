@@ -26,7 +26,7 @@ const HomePage = () => {
         </div>
 
       </div>
-      <div className='px-5'>
+      <div className='px-3'>
         <h1 className='text-2xl font-bold pt-6 pb-5'>Creations</h1>
 
         <div className='flex flex-row justify-between px-3 font-semibold'>
