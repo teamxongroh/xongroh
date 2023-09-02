@@ -1,5 +1,5 @@
-import Assets from "@/assets/Assets";
-import { Link } from "react-router-dom";
+import Assets from '@/assets/Assets'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
@@ -17,7 +17,7 @@ const Navbar = () => {
         <img className="h-8 w-8" src={Assets.profile} alt="About" />
       </Link>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
