@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import LoginPage from "@/scenes/loginPage";
 import RegisterPage from "@/scenes/registerPage";
 import HomePage from "@/scenes/homePage/HomePage";
-import PostPage from "@/scenes/postPage/PostPage";
 import PageNotFound from "@/scenes/pageNotFound/PageNotFound";
 import SearchPage from "@/scenes/searchPage/SearchPage";
 import MyCommunities from "@/scenes/communities/MyCommunities";
@@ -12,6 +11,7 @@ import Layout from "@/scenes/Layout";
 import Prefetch from "@/features/auth/Prefetch";
 import DashLayout from "@/components/DashLayout";
 import Welcome from "@/features/auth/Welcome";
+
 
 function App() {
   return (
@@ -34,7 +34,7 @@ function App() {
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
-  );
+  )
 }
 
-export default App;
+export default App
