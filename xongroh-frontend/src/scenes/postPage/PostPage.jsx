@@ -1,4 +1,4 @@
-import Assets from "@/assets/Assets";
+import Assets from '@/assets/Assets'
 
 const PostPage = () => {
   return (
@@ -23,7 +23,7 @@ const PostPage = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PostPage;
+export default PostPage
