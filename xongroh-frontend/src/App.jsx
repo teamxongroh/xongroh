@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
-import LoginPage from '@/scenes/loginPage'
-import RegisterPage from '@/scenes/registerPage'
+// import LoginPage from '@/scenes/loginPage'
+// import RegisterPage from '@/scenes/registerPage'
 import HomePage from '@/scenes/homePage/HomePage'
 import PostPage from '@/scenes/postPage/PostPage'
 import PageNotFound from '@/scenes/pageNotFound/PageNotFound'
@@ -13,16 +13,15 @@ import Prefetch from '@/features/auth/Prefetch'
 import DashLayout from '@/components/DashLayout'
 import Welcome from '@/features/auth/Welcome'
 import Public from '@/components/Public'
-import AuthenticationPage from '@/scenes/authentication'
+import AuthenticationPage from '@/scenes/onboard'
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Public />} />
-        <Route path="login" element={<LoginPage />} />
-        <Route path="register" element={<RegisterPage />} />
-        <Route path="authentication" element={<AuthenticationPage />} />
+        <Route index element={<AuthenticationPage />} />
+        {/* <Route path="login" element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} /> */}
 
         <Route element={<Prefetch />}>
           <Route path="dash" element={<DashLayout />}>
