@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import LoginPage from "@/scenes/loginPage";
 import RegisterPage from "@/scenes/registerPage";
 import HomePage from "@/scenes/homePage/HomePage";
+import PostPage from "@/scenes/postPage/PostPage";
 import PageNotFound from "@/scenes/pageNotFound/PageNotFound";
 import SearchPage from "@/scenes/searchPage/SearchPage";
 import MyCommunities from "@/scenes/communities/MyCommunities";
@@ -12,7 +13,6 @@ import Prefetch from "@/features/auth/Prefetch";
 import DashLayout from "@/components/DashLayout";
 import Welcome from "@/features/auth/Welcome";
 
-
 function App() {
   return (
     <Routes>
@@ -20,9 +20,7 @@ function App() {
         <Route index element={<DashLayout />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="register" element={<RegisterPage />} />
-
         <Route element={<Prefetch />}>
-
           <Route path="dash" element={<DashLayout />}>
             <Route index element={<Welcome />} />
             <Route path="home" element={<HomePage />} />
@@ -30,11 +28,10 @@ function App() {
             <Route path="communities" element={<MyCommunities />} />
             <Route path="profile" element={<Profile />} />
             <Route path="communitypage" element={<CommunityPage />} />
+            <Route path="postpage" element={<PostPage/>}/>
           </Route>
-
         </Route>
         <Route path="*" element={<PageNotFound />} />
-        
       </Route>
     </Routes>
   );
