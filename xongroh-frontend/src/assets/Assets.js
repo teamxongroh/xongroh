@@ -11,6 +11,10 @@ import music from '@/assets/music.png'
 import user2 from '@/assets/user2.png'
 import bookmark from '@/assets/bookmark.svg'
 import more from '@/assets/more.svg'
+import comment from '@/assets/comment.svg'
+import feedback from '@/assets/feedback.svg'
+import share from '@/assets/share.svg'
+import support from '@/assets/support.svg'
 
 
 
@@ -28,7 +32,11 @@ const Assets = {
   user2,
   music,
   bookmark,
-  more
+  more,
+  support,
+  share,
+  comment,
+  feedback
 }
 
 export default Assets
