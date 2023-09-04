@@ -9,8 +9,15 @@ import world from '@/assets/world.svg'
 import user1 from '@/assets/user1.png'
 import music from '@/assets/music.png'
 import user2 from '@/assets/user2.png'
+import bookmark from '@/assets/bookmark.svg'
+import more from '@/assets/more.svg'
 import xongroh from '@/assets/xongroh.svg'
 import background from '@/assets/background.webp'
+import comment from '@/assets/comment.svg'
+import feedback from '@/assets/feedback.svg'
+import share from '@/assets/share.svg'
+import support from '@/assets/support.svg'
+
 
 const Assets = {
   chat,
@@ -24,8 +31,14 @@ const Assets = {
   user1,
   user2,
   music,
+  bookmark,
+  more,
   xongroh,
-  background
+  background,
+  support,
+  share,
+  comment,
+  feedback
 }
 
 export default Assets
