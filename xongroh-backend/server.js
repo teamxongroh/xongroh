@@ -78,6 +78,7 @@ app.use(errorHandler);
 mongoose.connection.once('open', () => {
   console.log('Connected to MongoDB');
   app.listen(PORT, () => {
+    console.log(`worker pid=${process.pid}`)
     console.log(`Server listening on port ${PORT}`);
   });
 });

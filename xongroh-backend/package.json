@@ -2,10 +2,10 @@
   "name": "xongroh-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "primary.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node primary.js",
+    "dev": "nodemon primary.js"
   },
   "keywords": [],
   "author": "",
