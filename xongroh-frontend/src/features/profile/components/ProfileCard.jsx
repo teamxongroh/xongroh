@@ -15,7 +15,12 @@ const ProfileCardItem = ({ name, cover, dp, creations, supporting, bio, isCurren
       supportTrigger({ supportedUserId: id })
     }
   }
-    const { data, isLoading: userLoading, isSuccess: userSuccess, isError: userError } = useGetUserByIdQuery(userId)
+
+  const handleMessageClick = () => {
+    navigate(`/dash/chat/${id}`)
+  }
+
+  const { data, isLoading: userLoading, isSuccess: userSuccess, isError: userError } = useGetUserByIdQuery(userId)
 
   useEffect(() => {
     if (data?.supporting.includes(id)) {
@@ -60,7 +65,12 @@ const ProfileCardItem = ({ name, cover, dp, creations, supporting, bio, isCurren
                 </Button>
               ) : (
                 <>
-                  <Button variant="normal" size="normal" className="text-secondary-foreground">
+                  <Button
+                    variant="normal"
+                    size="normal"
+                    className="text-secondary-foreground"
+                    onClick={handleMessageClick}
+                  >
                     Message
                   </Button>
                   <Button

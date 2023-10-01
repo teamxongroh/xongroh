@@ -1,5 +1,6 @@
 xongroh-backend/node_modules/
 xongroh-frontend/node_modules/
+socket/node_modules/
 
 # environment variable
 xongroh-frontend/.env
