@@ -54,7 +54,7 @@ app.use(
 // This code snippet allows the web application
 // to serve the index.html file to the client when
 // the client requests the root URL.
-app.use('/', rootRoute);
+app.use('/server', rootRoute);
 app.use('/v1/auth', authRoute);
 app.use('/v1/user', userRoute);
 app.use('/v1/post', postRoute);
