@@ -4,6 +4,7 @@ const allowedOrigins = [
   'https://xongroh.vercel.app',
   'https://xongroh-public.vercel.app',
   'http://www.xongroh.com',
+  'https://www.xongroh.com'
 ];
 
 module.exports = allowedOrigins;
