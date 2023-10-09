@@ -3,6 +3,7 @@ const allowedOrigins = [
   'http://localhost:3500',
   'https://xongroh.vercel.app',
   'https://xongroh-public.vercel.app',
+  'http://www.xongroh.com',
 ];
 
 module.exports = allowedOrigins;
