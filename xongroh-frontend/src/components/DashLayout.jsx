@@ -26,16 +26,20 @@ const DashLayout = () => {
   return (
     <>
       {isLargeScreen ? (
-        <div className="flex flex-row">
-          <div className="w-1/4  ">
-            <LeftBar />
-          </div>
-          <div className="w-1/2">
+        <div>
+          <div>
             <DashHeader />
-            <Outlet />
           </div>
-          <div className="w-1/4  ">
-            <RightBar />
+          <div className="flex flex-row">
+            <div className="w-1/4  ">
+              <LeftBar />
+            </div>
+            <div className="w-1/2">
+              <Outlet />
+            </div>
+            <div className="w-1/4  ">
+              <RightBar />
+            </div>
           </div>
         </div>
       ) : (
