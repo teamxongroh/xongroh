@@ -21,9 +21,9 @@ const LeftBar = () => {
   }, [location])
 
   return (
-    <nav className="full-w sticky top-0 mr-3 flex h-screen justify-center bg-[#FCFCFC] p-6  pt-6 shadow-lg">
+    <nav className="full-w sticky top-20 mr-3 flex h-screen justify-center bg-[#FCFCFC] p-6  pt-6 shadow-lg">
       <div className="px-6 ">
-        <div className="pb-4 pt-6">
+        <div className="pb-4 ">
           <Link to="/dash" onClick={() => handleNavClick('/dash')} className="flex items-center space-x-2">
             <img className="h-8 w-8 " src={activeNav === '/dash' ? Assets.homeActive : Assets.home} alt="Home" />
             <span className={activeNav === '/dash' ? 'font-medium text-primary' : 'font-medium'}>Home</span>

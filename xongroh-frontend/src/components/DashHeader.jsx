@@ -130,11 +130,11 @@ function DashHeader() {
 
   return (
     <header>
-      <div className="bg-[#FAFAFA]">
+      <div className="bg-[#FAFAFA] lg:fixed lg:top-0 lg:z-50 w-full">
         <div className="lg:hidden">{renderContent()}</div>
         {/* For Large Screens */}
         <div className="hidden lg:block">
-          <div className="flex items-center justify-between px-5 py-3 lg:pl-12 lg:pt-4">
+          <div className="flex items-center justify-between px-5 py-3 lg:pl-12 lg:pt-5">
             <div className="flex items-center space-x-4">
               <div>
                 <img className="h-10 w-10 lg:h-12 lg:w-12" src={Assets.xongroh} alt="xongroh" />
@@ -155,7 +155,7 @@ function DashHeader() {
               </Link>
               <button className="icon-button" title="Logout" onClick={sendLogout}>
                 <div className="pl-6 flex items-center space-x-1">
-                  <img className='h-5 w-5' src={Assets.logout} alt="Logout" />
+                  <img className="h-5 w-5" src={Assets.logout} alt="Logout" />
                   <p className="text-sm text-muted-foreground">Signout</p>
                 </div>
               </button>
