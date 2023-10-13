@@ -31,6 +31,7 @@ import profileActive from '@/assets/profileActive.svg'
 import searchActive from '@/assets/searchActive.svg'
 import worldActive from '@/assets/worldActive.svg'
 import homeActive from '@/assets/homeActive.svg'
+import logout from '@/assets/logout.svg'
 
 const Assets = {
   chat,
@@ -66,6 +67,7 @@ const Assets = {
   profileActive,
   worldActive,
   homeActive,
+  logout
 }
 
 export default Assets
