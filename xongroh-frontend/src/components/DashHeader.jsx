@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Assets from '@/assets/Assets'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate} from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -39,14 +39,9 @@ function DashHeader() {
     if (location.pathname === '/dash') {
       return (
         <>
-          <div className="flex items-center justify-between px-5 py-3 lg:px-12 lg:pt-4">
-            <div className="flex items-center space-x-4">
-              <div>
-                <img className="h-10 w-10 lg:h-12 lg:w-12" src={Assets.xongroh} alt="xongroh" />
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold">xongroh</h1>
-              </div>
+          <div className="flex items-center justify-between px-5 py-3">
+            <div>
+              <img className="h-10 w-10" src={Assets.xongroh} alt="xongroh" />
             </div>
 
             <div className="flex flex-row space-x-6">
@@ -56,8 +51,8 @@ function DashHeader() {
               <Link to="messages">
                 <img className="h-8 w-8" src={Assets.chat} alt="chat" />
               </Link>
-              <button className="icon-button pl-0 sm:pl-4" title="Logout" onClick={sendLogout}>
-                <img src={Assets.logout} alt="Logout" />
+              <button className="icon-button" title="Logout" onClick={sendLogout}>
+                <FontAwesomeIcon icon={faRightFromBracket} size="2x" />
               </button>
             </div>
           </div>
@@ -130,38 +125,8 @@ function DashHeader() {
 
   return (
     <header>
-      <div className="bg-[#FAFAFA] lg:fixed lg:top-0 lg:z-50 w-full">
-        <div className="lg:hidden">{renderContent()}</div>
-        {/* For Large Screens */}
-        <div className="hidden lg:block">
-          <div className="flex items-center justify-between px-5 py-3 lg:pl-12 lg:pt-5 lg:pr-8">
-            <div className="flex items-center space-x-4">
-              <div>
-                <img className="h-10 w-10 lg:h-12 lg:w-12" src={Assets.xongroh} alt="xongroh" />
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold">xongroh</h1>
-              </div>
-            </div>
-
-            <div className="flex flex-row space-x-6">
-              <Link to="notifications" className="flex items-center space-x-2">
-                <img className="h-8 w-8" src={Assets.bell} alt="notification" />
-                <span className="font-medium">Notifications </span>
-              </Link>
-              <Link to="messages" className="flex items-center space-x-2">
-                <img className="h-8 w-8" src={Assets.chat} alt="chat" />
-                <span className="font-medium">Messages </span>
-              </Link>
-              <button className="icon-button" title="Logout" onClick={sendLogout}>
-                <div className="pl-6 flex items-center space-x-1">
-                  <img className="h-5 w-5" src={Assets.logout} alt="Logout" />
-                  <p className="text-sm text-muted-foreground">Signout</p>
-                </div>
-              </button>
-            </div>
-          </div>
-        </div>
+      <div className="bg-[#FAFAFA]">
+        <div>{renderContent()}</div>
       </div>
     </header>
   )
