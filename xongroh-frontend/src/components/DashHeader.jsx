@@ -127,7 +127,7 @@ function DashHeader() {
 
   return (
     <header>
-      <div className="bg-[#FAFAFA] lg:fixed lg:top-0 lg:z-50 w-full">
+      <div className="bg-[#FAFAFA] w-full">
         <div className="lg:hidden">{renderContent()}</div>
         {/* For Large Screens */}
         <div className="hidden lg:block">
