@@ -20,7 +20,7 @@ import Notifications from '@/features/notification/routes/Notifications'
 import Messages from '@/features/message/routes/Messages'
 import Drafts from '@/features/home/routes/Drafts'
 import MyDiscussions from '@/features/home/routes/MyDiscussions'
-import Chat from './features/chat/Chat'
+// import Chat from './features/chat/Chat'
 
 function App() {
   return (
@@ -44,7 +44,7 @@ function App() {
               <Route path="mydiscussions" element={<MyDiscussions />} />
               <Route path="mydrafts" element={<Drafts />} />
               <Route path="messages" element={<Messages />} />
-              <Route path="chat/:id" element={<Chat/>} />
+              {/* <Route path="chat/:id" element={<Chat/>} /> */}
               <Route path="notifications" element={<Notifications />} />
               {/* <Route path="communitypage" element={<CommunityPage />} /> */}
               {/* <Route path="postpage" element={<PostPage />} /> */}
