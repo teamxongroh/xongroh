@@ -8,6 +8,7 @@ import useAuth from '@/hooks/useAuth'
 import sha256 from 'crypto-js/sha256'
 
 function Chat() {
+  const URL = import.meta.env.VITE_SOCKET
   const { id } = useParams()
   const { userId } = useAuth()
   const partnerId = id
@@ -15,7 +16,7 @@ function Chat() {
   const [messages, setMessages] = useState([])
   const [room, setRoom] = useState('default')
 
-  const socket = io('http://localhost:8002')
+  const socket = io(URL)
 
   useEffect(() => {
     socket.on('receive-chat-message', (message) => {

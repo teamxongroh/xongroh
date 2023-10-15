@@ -5,6 +5,7 @@ socket/node_modules/
 # environment variable
 xongroh-frontend/.env
 xongroh-backend/.env
+socket/.env
 
 xongroh-backend/crypto.js
 xongroh-backend/logs/

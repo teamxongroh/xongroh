@@ -1,8 +1,10 @@
 const PORT = '8002'
+const allowedOriginsJson = process.env.ALLOWED_ORIGINS_JSON || '[]'
+const allowedOrigins = JSON.parse(allowedOriginsJson)
 
 const io = require('socket.io')(PORT, {
   cors: {
-    origin: ['https://admin.socket.io', 'http://localhost:8080', 'http://localhost:3000'],
+    origin: allowedOrigins,
     credentials: true,
   },
 })
