@@ -15,7 +15,7 @@ function Chat() {
   const hashDigest = sha256(userId + partnerId)
   const [messages, setMessages] = useState([])
   const [room, setRoom] = useState('default')
-  console.log(hashDigest.toString()s)
+  console.log(hashDigest.toString())
 
   const socket = io(URL)
 
