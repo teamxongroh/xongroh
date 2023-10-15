@@ -1,4 +1,6 @@
 const PORT = '8002'
+require('dotenv').config()
+
 const allowedOriginsJson = process.env.ALLOWED_ORIGINS_JSON || '[]'
 const allowedOrigins = JSON.parse(allowedOriginsJson)
 

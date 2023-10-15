@@ -3,7 +3,7 @@ import React from 'react'
 function ChatRoom({ messages }) {
   return (
     <div className="p-4">
-      <div className="bg-white p-4 rounded mt-4 shadow overflow-y-auto max-h-96">
+      <div className="bg-white p-4 rounded mt-4 shadow overflow-y-auto max-w-96">
         {messages.map((msg, index) => (
           <div
             key={index}
