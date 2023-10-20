@@ -1,12 +1,7 @@
 import React, { Component } from 'react'
 import CreationPostCard from '@/features/posts/components/creation/CreationPostCard'
 
-import {
-  Card,
-  CardHeader,
-  CardDescription,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardHeader, CardDescription, CardTitle } from '@/components/ui/card'
 
 class FilterTabs extends Component {
   constructor(props) {
@@ -25,13 +20,13 @@ class FilterTabs extends Component {
 
     return (
       <div>
-        <div className="mx-3 flex overflow-x-scroll whitespace-nowrap py-2">
+        <div className="mx-5 flex overflow-x-scroll whitespace-nowrap  lg:overflow-hidden lg:mx-8">
           {this.renderTab('new', 'New')}
           {this.renderTab('popular', 'Popular')}
           {this.renderTab('saved', 'Saved')}
         </div>
 
-        <div className="m-4 text-lg font-normal text-muted-foreground ">
+        <div className="mx-4 my-6 text-lg font-normal text-muted-foreground lg:mx-6">
           {activeTab === 'new' && this.renderNewContent()}
           {activeTab === 'popular' && this.renderPopularContent()}
           {activeTab === 'saved' && this.renderSavedContent()}
@@ -60,7 +55,7 @@ class FilterTabs extends Component {
 
   renderNewContent() {
     return (
-      <div className='pb-16'>
+      <div className="pb-16">
         <CreationPostCard />
       </div>
     )
