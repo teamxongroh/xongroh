@@ -68,7 +68,13 @@ function DashHeader() {
             <div className="py-4 pl-4">
               <div className="flex text-xl font-bold items-center">
                 <div className="pr-1">
-                  <Link to="/dash">
+                  <Link
+                    to="#"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      navigate(-1)
+                    }}
+                  >
                     <Button className="p-0" variant="link">
                       <img src={Assets.back} alt="" />
                     </Button>
@@ -84,7 +90,13 @@ function DashHeader() {
           <div className="py-4 pl-4">
             <div className="flex text-xl font-bold items-center">
               <div className="pr-1">
-                <Link to="/dash">
+                <Link
+                  to="#"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    navigate(-1)
+                  }}
+                >
                   <Button className="p-0" variant="link">
                     <img src={Assets.back} alt="" />
                   </Button>
@@ -99,7 +111,13 @@ function DashHeader() {
           <div className="py-4 pl-4">
             <div className="flex text-xl font-bold items-center">
               <div className="pr-1">
-                <Link to="/dash">
+                <Link
+                  to="#"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    navigate(-1)
+                  }}
+                >
                   <Button className="p-0" variant="link">
                     <img src={Assets.back} alt="" />
                   </Button>
@@ -113,7 +131,13 @@ function DashHeader() {
         return (
           <>
             <div className="py-4">
-              <Link to="/dash">
+              <Link
+                to="#"
+                onClick={(e) => {
+                  e.preventDefault()
+                  navigate(-1)
+                }}
+              >
                 <Button className="text-md font-semibold text-secondary-foreground" variant="link">
                   <img src={Assets.back} alt="" className="h-5 pr-1" /> Back
                 </Button>
