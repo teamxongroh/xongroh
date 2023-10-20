@@ -84,7 +84,7 @@ const PostCard = ({ postId, post }) => {
     const clean = DOMPurify.sanitize(dirty, { USE_PROFILES: { html: true } })
 
     return (
-      <Card className="mt-5">
+      <Card className="mt-5 break-inside-avoid sm:m-0 sm:mb-4 lg:mb-6">
         <CardHeader className="p-4">
           <div>
             <Link to={`/dash/profile/${author._id}`}>
@@ -99,9 +99,10 @@ const PostCard = ({ postId, post }) => {
             </Link>
           </div>
         </CardHeader>
-        <CardContent className="px-4 pb-0">
+        <CardContent className="px-4 pb-2">
+          <h1 className="line-clamp-2 text-sm font-semibold leading-normal">{post.title}</h1>
           <div
-            className="text-sm text-muted-foreground"
+            className="text-foreground pt-2  text-sm	leading-normal"
             onClick={handlePostClick}
             style={{
               cursor: 'pointer',
@@ -121,7 +122,24 @@ const PostCard = ({ postId, post }) => {
               </Button>
             </div>
             <div className="pl-3">
-              <h1 className="line-clamp-2 text-sm font-semibold">{post.title}</h1>
+              <Button
+                variant="normal"
+                size="normal"
+                className="text-secondary-foreground
+                "
+              >
+                Share
+              </Button>
+            </div>
+            <div className="pl-3">
+              <Button
+                variant="normal"
+                size="normal"
+                className="text-secondary-foreground
+                "
+              >
+                Save
+              </Button>
             </div>
           </div>
         </CardFooter>
