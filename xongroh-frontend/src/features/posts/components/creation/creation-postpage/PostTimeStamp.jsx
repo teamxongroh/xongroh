@@ -16,9 +16,7 @@ const PostTimeStamp = ({ timestamp }) => {
 
   return (
     <div className="p-2 pl-5">
-      <p className="text-gray-600 text-sm italic">
-        {formatTimestamp(timestamp)}
-      </p>
+      <p className="text-muted-foreground text-sm italic">{formatTimestamp(timestamp)}</p>
     </div>
   )
 }

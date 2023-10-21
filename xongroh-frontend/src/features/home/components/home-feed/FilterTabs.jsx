@@ -63,7 +63,7 @@ class FilterTabs extends Component {
 
   renderPopularContent() {
     return (
-      <div>
+      <div className="pb-2 sm:columns-2 sm:gap-4 lg:gap-6">
         <CreationPostCard />
       </div>
     )

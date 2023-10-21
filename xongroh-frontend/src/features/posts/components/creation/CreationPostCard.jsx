@@ -3,7 +3,7 @@ import DOMPurify from 'dompurify'
 import { useGetPostsQuery, useGetPostsByUserIdQuery } from '@/features/posts/postsApiSlice'
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-
+import PostCardTime from '@/features/posts/components/creation/creation-postpage/PostCardTime'
 import { useGetUserByIdQuery } from '@/features/users/usersApiSlice'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import ClipLoader from 'react-spinners/ClipLoader'
@@ -80,23 +80,27 @@ const PostCard = ({ postId, post }) => {
     const likeCount = Object.keys(post.likes).length
     const saveCount = Object.keys(post.saves).length
     const interactions = likeCount + saveCount
-    const dirty = post.content.length > 100 ? `${post.content.slice(0, 150)}...` : post.content
+    const dirty = post.content.length > 150 ? `${post.content.slice(0, 180)}...` : post.content
     const clean = DOMPurify.sanitize(dirty, { USE_PROFILES: { html: true } })
 
     return (
       <Card className="mt-5 break-inside-avoid sm:m-0 sm:mb-4 lg:mb-6">
         <CardHeader className="p-4">
-          <div>
-            <Link to={`/dash/profile/${author._id}`}>
-              <Button variant="normal" size="normal">
+          <div className="flex items-center justify-between">
+            <Button variant="normal" size="normal">
+              <Link to={`/dash/profile/${author._id}`}>
                 <div className="flex items-center">
                   <div>
                     <img className="h-9 w-9 rounded-full" src={author.profilePicture || ''} alt="profile" />
                   </div>
                   <div className="pl-4">{author.username}</div>
                 </div>
-              </Button>
-            </Link>
+              </Link>
+            </Button>
+
+            <div className="pr-2">
+              <PostCardTime timestamp={post.timestamp} />
+            </div>
           </div>
         </CardHeader>
         <CardContent className="px-4 pb-2">
