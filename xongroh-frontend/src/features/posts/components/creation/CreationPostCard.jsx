@@ -93,7 +93,7 @@ const PostCard = ({ postId, post }) => {
                   <div>
                     <img className="h-9 w-9 rounded-full" src={author.profilePicture || ''} alt="profile" />
                   </div>
-                  <div className="pl-4">{author.username}</div>
+                  <div className="pl-3">{author.username}</div>
                 </div>
               </Link>
             </Button>

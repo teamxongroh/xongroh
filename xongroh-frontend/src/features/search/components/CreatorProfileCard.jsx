@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+import React from 'react'
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Link } from 'react-router-dom'
-import { useGetUsersQuery, useSupportTriggerMutation } from '@/features/users/usersApiSlice'
+import { useGetUsersQuery } from '@/features/users/usersApiSlice'
 import useAuth from '@/hooks/useAuth'
 import { useGetUserByIdQuery } from '@/features/users/usersApiSlice'
 
 const CreatorProfileCardItem = ({ name, username, profilePicture, userId, currentUserId }) => {
-  const [buttonText, setButtonText] = useState('Support')
-  const [supportTrigger, { isLoading, isSuccess, isError, error }] = useSupportTriggerMutation()
   const {
     data,
     isLoading: userLoading,
@@ -16,57 +13,25 @@ const CreatorProfileCardItem = ({ name, username, profilePicture, userId, curren
     isError: userError,
   } = useGetUserByIdQuery(currentUserId)
 
-  useEffect(() => {
-    if (data?.supporting.includes(userId)) {
-      setButtonText('View')
-    }
-  }, [data, userId])
-
-  const handleButtonClick = async () => {
-    if (buttonText === 'Support') {
-      await supportTrigger({ supportedUserId: userId })
-      setButtonText('View')
-    }
-  }
-
   if (userId === currentUserId) {
     return null
   }
 
   return (
-    <Card className="mt-5">
-      <div className="flex items-center justify-between p-3 py-5">
+    <Card className="mt-5 break-inside-avoid sm:m-0 sm:mb-4 lg:mb-6">
+      <div className="flex items-center justify-between p-3">
         <div>
-          <CardHeader className="p-0">
-            <div className="flex items-center">
-              <Link to={`/dash/profile/${userId}`}>
+          <Link to={`/dash/profile/${userId}`}>
+            <CardHeader className="p-0 pl-2">
+              <div className="flex items-center">
                 <img className="h-12 w-12 rounded-full" src={profilePicture} alt="profile" />
-              </Link>
-              <div className="pl-4">
-                <CardTitle>{name}</CardTitle>
-                <CardDescription>@{username}</CardDescription>
+                <div className="pl-3">
+                  <CardTitle>{name}</CardTitle>
+                  <CardDescription>@{username}</CardDescription>
+                </div>
               </div>
-            </div>
-          </CardHeader>
-        </div>
-        <div>
-          {userLoading ? (
-            <p>Loading...</p>
-          ) : (
-            <CardContent className="p-0">
-              {buttonText === 'View' ? (
-                <Link to={`/profile/${username}`}>
-                  <Button variant="normal" size="normal" onClick={handleButtonClick}>
-                    {buttonText}
-                  </Button>
-                </Link>
-              ) : (
-                <Button variant="normal" size="normal" onClick={handleButtonClick}>
-                  {buttonText}
-                </Button>
-              )}
-            </CardContent>
-          )}
+            </CardHeader>
+          </Link>
         </div>
       </div>
     </Card>
