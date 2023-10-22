@@ -1,13 +1,7 @@
 import React, { useState } from 'react'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import Assets from '@/assets/Assets'
-import { Link } from 'react-router-dom' 
+import { Link } from 'react-router-dom'
 
 const dummyData = [
   { name: 'Art Community', members: '100', dp: Assets.art, time: '6 mins' },
@@ -26,21 +20,15 @@ const MyCommunityProfileCardItem = ({ name, members, dp, time }) => {
 
   return (
     <Link to={`/communitypage`}>
-      <Card className="mt-5">
+      <Card className="mt-5 sm:m-0 sm:mb-4 lg:mb-6">
         <div className="flex items-center justify-between p-3 py-5">
           <div>
             <CardHeader className="p-0">
               <div className="flex items-center">
-                <img
-                  className="h-12 w-12 rounded-full "
-                  src={dp}
-                  alt="profile"
-                />
+                <img className="h-12 w-12 rounded-full " src={dp} alt="profile" />
                 <div className="pl-4">
                   <CardTitle className="line-clamp-1 text-sm">{name}</CardTitle>
-                  <CardDescription className="text-xs">
-                    Members: {members}
-                  </CardDescription>
+                  <CardDescription className="text-xs">Members: {members}</CardDescription>
                 </div>
               </div>
             </CardHeader>
@@ -65,15 +53,9 @@ const MyCommunityProfileCardItem = ({ name, members, dp, time }) => {
 
 const MyCommunityProfileCard = () => {
   return (
-    <div className="m-4">
+    <div>
       {dummyData.map((data, index) => (
-        <MyCommunityProfileCardItem
-          key={index}
-          name={data.name}
-          members={data.members}
-          dp={data.dp}
-          time={data.time}
-        />
+        <MyCommunityProfileCardItem key={index} name={data.name} members={data.members} dp={data.dp} time={data.time} />
       ))}
     </div>
   )

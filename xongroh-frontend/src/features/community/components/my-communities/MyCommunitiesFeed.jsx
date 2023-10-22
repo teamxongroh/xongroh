@@ -2,7 +2,7 @@ import MyCommunityProfileCard from '@/features/community/components/my-communiti
 
 const MyCommunitiesFeed = () => {
   return (
-    <div className='mt-9 pb-5'>
+    <div className=" mx-4 mt-12 sm:columns-2 sm:gap-4 lg:mx-6  lg:gap-6">
       <MyCommunityProfileCard />
     </div>
   )
