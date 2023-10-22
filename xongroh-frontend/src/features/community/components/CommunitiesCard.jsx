@@ -27,6 +27,7 @@ const CommunitiesCard = () => {
       <div className=" mx-6 flex justify-start gap-6 pt-8 font-semibold">
         <div>
           <Button
+            size="normal"
             variant={activeTab === 'Explore' ? 'normal' : 'normal'}
             className={`${activeTab === 'Explore' ? ' text-primary lg:px-6' : ' text-secondary-foreground lg:px-6'}`}
             onClick={() => handleTabClick('Explore')}
@@ -36,6 +37,7 @@ const CommunitiesCard = () => {
         </div>
         <div>
           <Button
+            size="normal"
             variant={activeTab === 'My Communities' ? 'normal' : 'normal'}
             className={`${
               activeTab === 'My Communities' ? 'text-primary lg:px-6' : 'text-secondary-foreground lg:px-6'
