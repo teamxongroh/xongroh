@@ -66,14 +66,15 @@ const ProfileCardItem = ({ name, cover, dp, creations, supporting, bio, isCurren
                   <Button variant="normal" size="normal" onClick={handleButtonClick}>
                     {buttonText}
                   </Button>
-                  <Button variant="normal" size="normal" className="text-secondary-foreground">
-                    Message
-                  </Button>
+                  
                   <Link to="/portfolio">
                     <Button variant="normal" size="normal" className="text-secondary-foreground font-semibold">
                       Portfolio
                     </Button>
                   </Link>
+                  <Button variant="normal" size="normal" className="text-secondary-foreground">
+                    Message
+                  </Button>
                 </>
               )}
             </div>
