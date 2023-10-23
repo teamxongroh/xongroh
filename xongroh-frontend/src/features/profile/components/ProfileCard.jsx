@@ -25,7 +25,7 @@ const ProfileCardItem = ({ name, cover, dp, creations, supporting, bio, isCurren
 
   return (
     <div className="overflow-hidden">
-      <div className="header mb-4 ">
+      <div className="header mb-6 rounded-b-3xl bg-[#FAFAFA] pb-4 shadow-lg lg:mx-6">
         <div className="flex flex-col">
           <img src={cover} className="h-40 object-cover" alt="Cover" />
           <div className="header shadow-card flex flex-col items-center rounded-b-3xl px-3 pb-6 pt-5">
