@@ -1,12 +1,7 @@
 import React, { Component } from 'react'
 import CreationPostCard from '@/features/posts/components/creation/CreationPostCard'
 
-import {
-  Card,
-  CardHeader,
-  CardDescription,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardHeader, CardDescription, CardTitle } from '@/components/ui/card'
 
 class FilterTabs extends Component {
   constructor(props) {
@@ -25,13 +20,13 @@ class FilterTabs extends Component {
 
     return (
       <div>
-        <div className="mx-3 flex overflow-x-scroll whitespace-nowrap py-2">
+        <div className="mx-5 flex overflow-x-scroll whitespace-nowrap  lg:mx-8 lg:overflow-hidden">
           {this.renderTab('new', 'New')}
           {this.renderTab('popular', 'Popular')}
           {this.renderTab('saved', 'Saved')}
         </div>
 
-        <div className="m-4 text-lg font-normal text-muted-foreground ">
+        <div className="text-muted-foreground mx-4 my-6 text-lg font-normal lg:mx-6">
           {activeTab === 'new' && this.renderNewContent()}
           {activeTab === 'popular' && this.renderPopularContent()}
           {activeTab === 'saved' && this.renderSavedContent()}
@@ -48,7 +43,7 @@ class FilterTabs extends Component {
       <div
         className={` p-2 px-3 ${
           isActive
-            ? 'font-semibold text-primary underline decoration-inherit decoration-solid underline-offset-8'
+            ? 'text-primary font-semibold underline decoration-inherit decoration-solid underline-offset-8'
             : 'font-semibold'
         }`}
         onClick={() => this.handleTabClick(tabName)}
@@ -60,7 +55,7 @@ class FilterTabs extends Component {
 
   renderNewContent() {
     return (
-      <div className='pb-16'>
+      <div className="pb-2 sm:columns-2 sm:gap-4 lg:gap-6">
         <CreationPostCard />
       </div>
     )
@@ -68,7 +63,7 @@ class FilterTabs extends Component {
 
   renderPopularContent() {
     return (
-      <div>
+      <div className="pb-2 sm:columns-2 sm:gap-4 lg:gap-6">
         <CreationPostCard />
       </div>
     )

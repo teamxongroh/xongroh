@@ -28,8 +28,8 @@ const CommunityProfileCardItem = ({ name, members, dp }) => {
   }
 
   return (
-    <Card className="mt-5">
-      <div className="flex items-center justify-between p-3 py-5">
+    <Card className="mt-5 sm:m-0 sm:mb-4 lg:mb-6">
+      <div className="flex items-center justify-between p-3 py-5 ">
         <div>
           <CardHeader className="p-0">
             <div className="flex items-center">

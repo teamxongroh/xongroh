@@ -14,35 +14,33 @@ const CommunitiesCard = () => {
   }
 
   return (
-    <div className="overflow-hidden">
-      <div className="header mb-6 rounded-b-3xl bg-[#FAFAFA] px-5 pb-8 shadow-lg">
-        <div className="flex items-center space-x-2 py-6">
-          <Input type="text" placeholder="Search..." />
-          <Link to="/commsearchresult">
-            {' '}
-            <Button variant="outline" size="icon">
-              <img className="h-4 w-4" src={Assets.search} alt="Search" />
-            </Button>
-          </Link>
-        </div>
-        <div className="grid grid-cols-2 gap-4 pt-3 font-semibold">
+    <div className="header my-4 overflow-hidden">
+      <div className="flex items-center space-x-2 p-5 pb-4 pt-6">
+        <Input type="text" placeholder="Search..." />
+        <Link to="/commsearchresult">
+          {' '}
+          <Button variant="outline" size="icon">
+            <img className="h-4 w-4" src={Assets.searchActive} alt="Search" />
+          </Button>
+        </Link>
+      </div>
+      <div className=" mx-6 flex justify-start gap-6 pt-8 font-semibold">
+        <div>
           <Button
-            variant={activeTab === 'Explore' ? 'normal' : 'link'}
-            className={`${
-              activeTab === 'Explore'
-                ? ' text-secondary-foreground'
-                : ' text-primary'
-            }`}
+            size="normal"
+            variant={activeTab === 'Explore' ? 'normal' : 'normal'}
+            className={`${activeTab === 'Explore' ? ' text-primary lg:px-6' : ' text-secondary-foreground lg:px-6'}`}
             onClick={() => handleTabClick('Explore')}
           >
             Explore
           </Button>
+        </div>
+        <div>
           <Button
-            variant={activeTab === 'My Communities' ? 'normal' : 'link'}
+            size="normal"
+            variant={activeTab === 'My Communities' ? 'normal' : 'normal'}
             className={`${
-              activeTab === 'My Communities'
-                ? 'text-secondary-foreground'
-                : 'text-primary'
+              activeTab === 'My Communities' ? 'text-primary lg:px-6' : 'text-secondary-foreground lg:px-6'
             }`}
             onClick={() => handleTabClick('My Communities')}
           >

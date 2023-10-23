@@ -3,7 +3,7 @@ import DOMPurify from 'dompurify'
 import { useGetPostsQuery, useGetPostsByUserIdQuery } from '@/features/posts/postsApiSlice'
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-
+import PostCardTime from '@/features/posts/components/creation/creation-postpage/PostCardTime'
 import { useGetUserByIdQuery } from '@/features/users/usersApiSlice'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import ClipLoader from 'react-spinners/ClipLoader'
@@ -80,28 +80,33 @@ const PostCard = ({ postId, post }) => {
     const likeCount = Object.keys(post.likes).length
     const saveCount = Object.keys(post.saves).length
     const interactions = likeCount + saveCount
-    const dirty = post.content.length > 100 ? `${post.content.slice(0, 150)}...` : post.content
+    const dirty = post.content.length > 150 ? `${post.content.slice(0, 180)}...` : post.content
     const clean = DOMPurify.sanitize(dirty, { USE_PROFILES: { html: true } })
 
     return (
-      <Card className="mt-5">
+      <Card className="mt-5 break-inside-avoid sm:m-0 sm:mb-4 lg:mb-6">
         <CardHeader className="p-4">
-          <div>
-            <Link to={`/dash/profile/${author._id}`}>
-              <Button variant="normal" size="normal">
+          <div className="flex items-center justify-between">
+            <Button variant="normal" size="normal">
+              <Link to={`/dash/profile/${author._id}`}>
                 <div className="flex items-center">
                   <div>
                     <img className="h-9 w-9 rounded-full" src={author.profilePicture || ''} alt="profile" />
                   </div>
-                  <div className="pl-4">{author.username}</div>
+                  <div className="pl-3">{author.username}</div>
                 </div>
-              </Button>
-            </Link>
+              </Link>
+            </Button>
+
+            <div className="pr-2">
+              <PostCardTime timestamp={post.timestamp} />
+            </div>
           </div>
         </CardHeader>
-        <CardContent className="px-4 pb-0">
+        <CardContent className="px-4 pb-2">
+          <h1 className="line-clamp-2 text-sm font-semibold leading-normal">{post.title}</h1>
           <div
-            className="text-sm text-muted-foreground"
+            className="text-foreground pt-2  text-sm	leading-normal"
             onClick={handlePostClick}
             style={{
               cursor: 'pointer',
@@ -121,7 +126,24 @@ const PostCard = ({ postId, post }) => {
               </Button>
             </div>
             <div className="pl-3">
-              <h1 className="line-clamp-2 text-sm font-semibold">{post.title}</h1>
+              <Button
+                variant="normal"
+                size="normal"
+                className="text-secondary-foreground
+                "
+              >
+                Share
+              </Button>
+            </div>
+            <div className="pl-3">
+              <Button
+                variant="normal"
+                size="normal"
+                className="text-secondary-foreground
+                "
+              >
+                Save
+              </Button>
             </div>
           </div>
         </CardFooter>
