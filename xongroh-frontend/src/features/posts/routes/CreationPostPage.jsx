@@ -95,12 +95,12 @@ const CreationPostPage = () => {
   }
 
   return (
-    <div className="pt-6 pb-20">
+    <div className="pb-20 pt-6">
       {postSuccess && (
         <>
           <PostHeader postData={post} />
-          <PostTimeStamp timestamp={post.timestamp} />
           <PostContent postData={post} />
+          <PostTimeStamp timestamp={post.timestamp} />
           <PostActions
             postData={post}
             isLiked={isLiked}
@@ -115,7 +115,7 @@ const CreationPostPage = () => {
 
       <div>
         {postSuccess && (
-          <div className="mx-3 flex overflow-x-scroll whitespace-nowrap pb-2 pt-4">
+          <div className="mx-4 lg:mx-6 flex overflow-x-scroll whitespace-nowrap pt-4 lg:overflow-auto">
             <Tab
               tabName="comments"
               tabText="Comments "
@@ -133,7 +133,7 @@ const CreationPostPage = () => {
           </div>
         )}
 
-        <div className="mx-4 mt-2 text-lg font-normal text-muted-foreground ">
+        <div className="text-muted-foreground mx-4 lg:mx-6 text-lg font-normal ">
           {postSuccess && (
             <>
               {activeTab === 'comments' && (

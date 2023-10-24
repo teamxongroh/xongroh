@@ -7,8 +7,8 @@ const CommentForm = ({
   submitLabel,
   hasCancelButton = false,
   handleCancel,
-  initialText = "",
-  postId
+  initialText = '',
+  postId,
 }) => {
   const [text, setText] = useState(initialText)
   const isTextareaDisabled = text.length === 0
@@ -19,9 +19,9 @@ const CommentForm = ({
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className="pt-4">
       <Textarea
-        className="comment-form-textarea h-24 rounded-xl"
+        className=" h-24 rounded-xl  "
         placeholder="Write something..."
         value={text}
         onChange={(e) => setText(e.target.value)}
@@ -29,19 +29,15 @@ const CommentForm = ({
       <Button
         variant="normal"
         size="normal"
-        className="text-secondary-foreground"
+        className="text-secondary-foreground mx-1 my-4 "
         disabled={isTextareaDisabled}
       >
         {submitLabel}
       </Button>
       {hasCancelButton && (
-        <button
-          type="button"
-          className="comment-form-button comment-form-cancel-button"
-          onClick={handleCancel}
-        >
+        <Button variant="normal" size="normal" className="mx-3" onClick={handleCancel}>
           Cancel
-        </button>
+        </Button>
       )}
     </form>
   )

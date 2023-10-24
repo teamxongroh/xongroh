@@ -19,20 +19,25 @@ const FeedbackForm = ({
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className="pt-4">
       <Textarea
-        className="comment-form-textarea h-24 rounded-xl"
-        placeholder="Share your thoughts... .."
+        className=" h-24 rounded-xl"
+        placeholder="Share your thoughts..."
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <Button variant="normal" size="normal" className="text-secondary-foreground" disabled={isTextareaDisabled}>
+      <Button
+        variant="normal"
+        size="normal"
+        className="text-secondary-foreground mx-1 my-4"
+        disabled={isTextareaDisabled}
+      >
         {submitLabel}
       </Button>
       {hasCancelButton && (
-        <button type="button" className="comment-form-button comment-form-cancel-button" onClick={handleCancel}>
+        <Button variant="normal" size="normal" className="mx-3" onClick={handleCancel}>
           Cancel
-        </button>
+        </Button>
       )}
     </form>
   )

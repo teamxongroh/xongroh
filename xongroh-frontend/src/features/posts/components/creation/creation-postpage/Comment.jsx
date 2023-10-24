@@ -4,6 +4,7 @@ import Assets from '@/assets/Assets'
 import { useGetUserByIdQuery } from '@/features/users/usersApiSlice'
 import { useState, useEffect } from 'react'
 import { useLikeCommentMutation } from '@/features/posts/postsApiSlice'
+import PostCardTime from '@/features/posts/components/creation/creation-postpage/PostCardTime'
 
 const Comment = ({
   comment,
@@ -76,16 +77,15 @@ const Comment = ({
   }, [comment])
 
   return (
-    <div key={comment._id} className="px-3 pt-6 text-sm">
-      <div>
-        <img className="h-9 w-9 rounded-full" src={userData?.profilePicture || ''} alt="profile" />
-      </div>
-      <div className="mr-2 text-base font-semibold text-secondary-foreground ">
+    <div key={comment._id} className="pl-3 pt-8 text-sm">
+      <div className="flex items-center gap-2">
         <div>
-          <div className="comment-author">{userData?.username}</div>
-          <p className="text-gray-600 text-sm italic">{createdAt}</p>
+          <img className="h-6 w-6 rounded-full" src={userData?.profilePicture || ''} alt="profile" />
         </div>
-        {!isEditing && <div className="comment-text">{comment.text}</div>}
+        <div className=" text-primary text-lg font-bold ">{userData?.username}</div>
+      </div>
+      <div className="text-secondary-foreground mr-2 text-base font-semibold ">
+        {!isEditing && <div className="pt-2 text-sm font-medium mx-1">{comment.text}</div>}
         {isEditing && (
           <CommentForm
             submitLabel="Update"
@@ -99,7 +99,10 @@ const Comment = ({
         )}
         <div className="comment-actions">
           {canReply && (
-            <div className="flex">
+            <div className="flex px-1">
+              <Button variant="link" onClick={handleLikeClick} className="text-secondary-foreground pl-0">
+                <PostCardTime timestamp={comment.timestamp} />
+              </Button>
               <Button
                 variant="link"
                 className="pl-0"
@@ -107,7 +110,7 @@ const Comment = ({
               >
                 Reply
               </Button>
-              <Button variant="link" onClick={handleLikeClick} className="pl-0 text-secondary-foreground">
+              <Button variant="link" onClick={handleLikeClick} className="text-secondary-foreground pl-0">
                 <img src={Assets.heart} alt="hearts" className="pr-1" />
                 {numberOfLikes}
               </Button>
