@@ -127,9 +127,9 @@ const CommentContent = ({ postId, currentUserId, comments }) => {
   }, [])
 
   return (
-    <div className="comments">
+    <div>
       <CommentForm submitLabel="Comment" postId={postId} handleSubmit={addComment} />
-      <div className="comments-container">
+      <div>
         {rootComments.map((rootComment) => (
           <Comment
             key={rootComment._id}
