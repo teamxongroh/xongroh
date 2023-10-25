@@ -83,7 +83,7 @@ const EditProfileForm = () => {
             <img
               src={formData.profilePicture || userDataQuery?.profilePicture}
               alt="profilePicture"
-              className="mb-5 mt-3 h-36 rounded-full border"
+              className="mb-5 mt-3 h-36 w-36 rounded-full border"
             />
           </Label>
           <Input
