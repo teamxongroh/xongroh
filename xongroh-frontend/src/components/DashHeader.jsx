@@ -102,7 +102,7 @@ function DashHeader() {
                   </Button>
                 </Link>
               </div>
-              <div className="pl-2 text-2xl font-bold">Create post</div>
+              <div className="pl-2 text-2xl font-bold">Add New Creations</div>
             </div>
           </div>
         )

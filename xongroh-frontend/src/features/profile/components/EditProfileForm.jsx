@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import convertToBase64 from '@/utils/convert'
 import { useParams } from 'react-router-dom'
 import { useUpdateUserMutation, useGetUserByIdQuery } from '@/features/users/usersApiSlice'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Button } from '@/components/ui/button'
 
 const EditProfileForm = () => {
   const { id } = useParams()
@@ -71,24 +74,29 @@ const EditProfileForm = () => {
   }
 
   return (
-    <div className="max-w-xl mx-auto mt-8 p-4 mb-16">
-      <h2 className="text-2xl font-semibold mb-4">Edit User Profile</h2>
+    <div className="mx-auto mb-16 mt-8 max-w-xl p-4 2xl:max-w-3xl">
+      <h2 className=" mb-10 hidden text-2xl font-bold lg:block">Edit Profile</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="mb-4">
-          <label htmlFor="profilePicture" className="block font-medium">
-            <img src={formData.profilePicture || userDataQuery?.profilePicture} alt="profilePicture" />
+        <div className="mb-4 ">
+          <Label htmlFor="profilePicture" className="text-base">
             Profile Picture:
-          </label>
-          <input
+            <img
+              src={formData.profilePicture || userDataQuery?.profilePicture}
+              alt="profilePicture"
+              className="mb-5 mt-3 h-36 rounded-full border"
+            />
+          </Label>
+          <Input
             type="file"
             id="profilePicture"
             name="profilePicture"
             onChange={handleProfilePictureUpload}
-            className="mt-1 p-2 border rounded w-full"
+            className="mt-1 w-full rounded border p-2"
+            accept="image/*"
           />
         </div>
-        <div className="mb-4">
-          <label htmlFor="user_type">Account type</label>
+        {/* <div className="mb-4">
+          <Label htmlFor="user_type">Account type</Label>
           <select
             id="user_type"
             name="user_type"
@@ -100,77 +108,78 @@ const EditProfileForm = () => {
             <option value="patron">Patron</option>
             <option value="admin">Admin</option>
           </select>
-        </div>
+        </div> */}
         <div className="mb-4">
-          <label htmlFor="username" className="block font-medium">
+          <Label htmlFor="username" className="text-base">
             Username:
-          </label>
-          <input
+          </Label>
+          <Input
             type="text"
             id="username"
             name="username"
             value={formData.username}
             onChange={handleInputChange}
-            className="mt-1 p-2 border rounded w-full"
+            className="mt-1 w-full rounded border p-2"
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="email" className="block font-medium">
+          <Label htmlFor="email" className="text-base">
             Email:
-          </label>
-          <input
+          </Label>
+          <Input
             type="email"
             id="email"
             name="email"
             value={formData.email}
             onChange={handleInputChange}
-            className="mt-1 p-2 border rounded w-full"
+            className="mt-1 w-full rounded border p-2"
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="firstName" className="block font-medium">
+          <Label htmlFor="firstName" className="text-base">
             First Name:
-          </label>
-          <input
+          </Label>
+          <Input
             type="text"
             id="firstName"
             name="firstName"
             value={formData.firstName}
             onChange={handleInputChange}
-            className="mt-1 p-2 border rounded w-full"
+            className="mt-1 w-full rounded border p-2"
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="lastName" className="block font-medium">
+          <Label htmlFor="lastName" className="text-base">
             Last Name:
-          </label>
-          <input
+          </Label>
+          <Input
             type="text"
             id="lastName"
             name="lastName"
             value={formData.lastName}
             onChange={handleInputChange}
-            className="mt-1 p-2 border rounded w-full"
+            className="mt-1 w-full rounded border p-2"
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="cover" className="block font-medium">
-            <img src={formData.cover || userDataQuery?.cover} alt="cover" />
+          <Label htmlFor="cover" className="text-base">
             Cover Image:
-          </label>
-          <input
+            <img src={formData.cover || userDataQuery?.cover} alt="cover" className="mb-5 mt-3 border" />
+          </Label>
+          <Input
             type="file"
             id="cover"
             name="cover"
             onChange={handleCoverUpload}
-            className="mt-1 p-2 border rounded w-full"
+            className="mb-4 mt-1 w-full rounded border p-2"
+            accept="image/*"
           />
         </div>
         {isSuccess && <p>Update successful!</p>}
         {isError && <p>Error: {error.message}</p>}
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full md:w-auto">
+        <Button type="submit" className=" w-full text-base md:w-1/2">
           {isLoading ? 'Updating...' : 'Update'}
-        </button>
+        </Button>
       </form>
     </div>
   )

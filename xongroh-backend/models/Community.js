@@ -1,34 +1,16 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-// Define the schema
 const communitySchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  description: String,
-  community_type: {
-    type: String,
-    enum: ['Public', 'Private', 'Secret'],
-    required: true
-  },
-  topics: [{
-    topic_id: {
-      type: String,
-      required: true
+  name: { type: String, required: true },
+  description: { type: String, required: true },
+  communityType: { type: String, required: true },
+  topics: [
+    {
+      topicId: { type: String, required: true },
+      name: { type: String, required: true },
     },
-    topic_name: {
-      type: String,
-      required: true
-    }
-  }],
-  members: [{
-    user_id: {
-      type: String,
-      required: true
-    }
-  }]
-});
+  ],
+  members: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+})
 
-const Community = mongoose.model('Community', communitySchema);
-module.exports = Community;
+const Community = mongoose.model('Community', communitySchema)
