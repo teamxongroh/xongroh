@@ -4,6 +4,9 @@ import convertToBase64 from '@/utils/convert'
 import useAuth from '@/hooks/useAuth'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Button } from '@/components/ui/button'
 
 const CreatePost = () => {
   const { userId } = useAuth()
@@ -65,28 +68,26 @@ const CreatePost = () => {
   }
 
   return (
-    <div className="max-w-xl mx-auto mt-8 p-4 mb-16">
-      <h2 className="text-2xl font-semibold mb-4">Create New Post</h2>
+    <div className="mx-auto mb-16 mt-8 max-w-xl 2xl:max-w-3xl p-4">
+      <h2 className="hidden lg:block mb-10 text-2xl font-bold">Add New Creations</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="mb-4">
-          <label htmlFor="title" className="block font-medium">
+          <Label htmlFor="title" className=" text-base ">
             Title:
-          </label>
-          <input
+          </Label>
+          <Input
             type="text"
             id="title"
             name="title"
             value={formData.title}
             onChange={handleInputChange}
-            className="mt-1 p-2 border rounded w-full"
+            className="mt-1 w-full rounded border p-2"
             required
           />
         </div>
         <div className="mb-4">
-          <label className="block font-medium">
-            Content:
-          </label>
-          <ReactQuill theme="snow" value={formData.content} onChange={handleContentChange} />
+          <Label className="text-base">Content:</Label>
+          <ReactQuill theme="snow" className="mt-1 " value={formData.content} onChange={handleContentChange} />
           {/* <textarea
             id="content"
             name="content"
@@ -96,24 +97,25 @@ const CreatePost = () => {
             required
           /> */}
         </div>
-        <div className="mb-4">
-          <label htmlFor="cover" className="block font-medium">
-            Cover Picture:
-          </label>
-          <input
+        <div>
+          <Label htmlFor="cover" className="text-base">
+            Media:
+          </Label>
+          <p className="text-muted-foreground pb-3 text-xs">Currently supports image only.</p>
+          <Input
             type="file"
             id="cover"
             name="cover"
             onChange={handleInputChange}
-            className="mt-1 p-2 border rounded w-full"
+            className=" w-full rounded border p-2 mb-4"
             accept="image/*"
           />
         </div>
-        {isSuccess && <p>Post created successfully!</p>}
+        {isSuccess && <p>Creation added successfully!</p>}
         {isError && <p>Error: {error.message}</p>}
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full md:w-auto">
-          {isLoading ? 'Creating...' : 'Create Post'}
-        </button>
+        <Button type="submit" className=" w-full md:w-1/2 text-base ">
+          {isLoading ? 'Creating...' : 'Create'}
+        </Button>
       </form>
     </div>
   )
